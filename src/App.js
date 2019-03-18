@@ -7,7 +7,8 @@ const App = ({
   player1Serving,
   handlePlayer1Increment, 
   handlePlayer2Increment,
-  handleReset
+  handleReset,
+  winner,
 }) => (
 
   <React.Fragment>
@@ -20,7 +21,8 @@ const App = ({
       <div className="row">
           <div className="col-xs-6">
               <p>Player 1 {player1Serving &&
-                 <span className="pull-right label label-success">Serving</span>}
+                 <span className="pull-right label label-success">Serving</span>
+                 }
               </p> 
               
               <p className="well">{ player1 }</p>
@@ -33,7 +35,8 @@ const App = ({
 
           <div className="col-xs-6">
               <p>Player 2 {!player1Serving &&
-                <span className="pull-right label label-success">Serving</span>}
+                <span className="pull-right label label-success">Serving</span>
+                }
               </p>
               
               <p className="well">{ player2 }</p>
@@ -45,9 +48,9 @@ const App = ({
           </div>
       </div>
 
-      { /* winner message */}
-      <h2 className="jumbotron">Player {/* winning player here */} wins!</h2>
-
+      {winner !== 0 &&
+      <h2 className="jumbotron">Player {winner === 1 ? 1 : 2} wins!</h2>
+      }
       <hr />
 
       { /* reset button */}
