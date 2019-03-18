@@ -26,11 +26,11 @@ const App = ({
               </p> 
               
               <p className="well">{ player1 }</p>
-              <button 
+              {winner !== 1 && winner !== 2 ? <button 
                 onClick={handlePlayer1Increment} 
                 className="btn btn-primary"
               >+
-              </button>
+              </button> : null}
           </div>
 
           <div className="col-xs-6">
@@ -40,15 +40,15 @@ const App = ({
               </p>
               
               <p className="well">{ player2 }</p>
-              <button 
+              {winner !== 1 && winner !== 2 ? <button 
                 onClick={handlePlayer2Increment} 
                 className="btn btn-primary"
               >+
-              </button>
+              </button> : null}
           </div>
       </div>
 
-      {winner !== 0 &&
+      {winner !== 0 && 
       <h2 className="jumbotron">Player {winner === 1 ? 1 : 2} wins!</h2>
       }
       <hr />

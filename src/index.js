@@ -24,11 +24,11 @@ const server = (state) => {
 }
 
 const winnerPlayer1 = (state) => {
-    return state.player1 >= 21  ? {...state, winner: state.winner = 1} : state;
+    return state.player1 >= 21 && (state.player1 - state.player2) > 1  ? {...state, winner: state.winner = 1} : state;
 }
 
 const winnerPlayer2 = (state) => {
-    return state.player2 >= 21  ? {...state, winner: state.winner = 2} : state;
+    return state.player2 >= 21  && (state.player2 - state.player1) > 1 ? {...state, winner: state.winner = 2} : state;
 }
 
 const reducer = (state, action) => {
