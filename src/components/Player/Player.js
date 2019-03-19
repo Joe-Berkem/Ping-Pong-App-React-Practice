@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
 
 const Player = ({ 
-    playerServing, 
+    player1Serving, 
     score, 
     winner,
     handlePlayerIncrement, 
@@ -10,14 +9,14 @@ const Player = ({
 }) => (
 
     <div className="col-xs-6">
-        <p>{name} {playerServing &&
+        <p>{name} {player1Serving &&
             <span className="pull-right label label-success">Serving</span>
             }
         </p> 
         
         <p className="well">{ score }</p>
 
-        {winner !== 1 && winner !== 2 ? 
+        {winner === 0 ? 
         <button 
         onClick={handlePlayerIncrement} 
         className="btn btn-primary"

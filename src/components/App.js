@@ -1,52 +1,41 @@
 import React from 'react';
-import Header from './Header';
-import Player from './Player';
+import Header from './Header/Header';
 import DisplayWinner from './DisplayWinner';
-import ResetButton from './ResetButton';
+import ResetButton from './ResetButton/ResetButton';
 import GameLog from './GameLog';
+import Player1 from './Player/Player1';
+import Player2 from './Player/Player2';
 
 const App = ({
-  player1, 
-  player2, 
-  player1Serving,
   handlePlayer1Increment, 
   handlePlayer2Increment,
   handleReset,
-  winner,
-  history
 }) => (
 
   <React.Fragment>
+    
       <Header/>
 
       <div className="row">
-          <Player
-            playerServing={ player1Serving }
-            score={ player1 }
-            winner= { winner }
+          <Player1
             handlePlayerIncrement={ handlePlayer1Increment }
             name="Player 1"
           />
 
-          <Player
-            playerServing={ !player1Serving }
-            score={ player2 }
-            winner= { winner }
+          <Player2
             handlePlayerIncrement={ handlePlayer2Increment }
             name="Player 2"
           />
       </div>
 
-      <DisplayWinner winner={ winner} />
+      <DisplayWinner />
       <hr />
 
       <ResetButton
         handleReset={ handleReset }
       />
+      <GameLog />
 
-      <GameLog 
-        history={ history } 
-      />
   </React.Fragment>
 );
 export default App;
