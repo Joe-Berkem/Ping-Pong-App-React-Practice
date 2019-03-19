@@ -1,5 +1,9 @@
 import React from 'react';
-import './App.css';
+import Header from './Header';
+import Player from './Player';
+import DisplayWinner from './DisplayWinner';
+import ResetButton from './ResetButton';
+import GameLog from './GameLog';
 
 const App = ({
   player1, 
@@ -9,55 +13,40 @@ const App = ({
   handlePlayer2Increment,
   handleReset,
   winner,
+  history
 }) => (
 
   <React.Fragment>
-      {/* header */}
-      <header className="page-header">
-          <h1>PongPing</h1>
-      </header>
+      <Header/>
 
-      {/* scores */}
       <div className="row">
-          <div className="col-xs-6">
-              <p>Player 1 {player1Serving &&
-                 <span className="pull-right label label-success">Serving</span>
-                 }
-              </p> 
-              
-              <p className="well">{ player1 }</p>
-              {winner !== 1 && winner !== 2 ? <button 
-                onClick={handlePlayer1Increment} 
-                className="btn btn-primary"
-              >+
-              </button> : null}
-          </div>
+          <Player
+            playerServing={ player1Serving }
+            score={ player1 }
+            winner= { winner }
+            handlePlayerIncrement={ handlePlayer1Increment }
+            name="Player 1"
+          />
 
-          <div className="col-xs-6">
-              <p>Player 2 {!player1Serving &&
-                <span className="pull-right label label-success">Serving</span>
-                }
-              </p>
-              
-              <p className="well">{ player2 }</p>
-              {winner !== 1 && winner !== 2 ? <button 
-                onClick={handlePlayer2Increment} 
-                className="btn btn-primary"
-              >+
-              </button> : null}
-          </div>
+          <Player
+            playerServing={ !player1Serving }
+            score={ player2 }
+            winner= { winner }
+            handlePlayerIncrement={ handlePlayer2Increment }
+            name="Player 2"
+          />
       </div>
 
-      {winner !== 0 && 
-      <h2 className="jumbotron">Player {winner === 1 ? 1 : 2} wins!</h2>
-      }
+      <DisplayWinner winner={ winner} />
       <hr />
 
-      { /* reset button */}
-      <button 
-        className="btn btn-danger"
-        onClick={handleReset}
-      >Reset</button>
+      <ResetButton
+        handleReset={ handleReset }
+      />
+
+      <GameLog 
+        history={ history } 
+      />
   </React.Fragment>
 );
 export default App;
