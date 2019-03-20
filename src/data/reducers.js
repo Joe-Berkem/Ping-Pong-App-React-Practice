@@ -1,4 +1,3 @@
-import React from 'react';
 
 const incrementPlayer1 = (state) => {
     return { ...state, player1: state.player1 + 1 };

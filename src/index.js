@@ -14,19 +14,12 @@ const store = createStore(
       && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
-const render = () => {
-    let state = store.getState();
 
-    ReactDOM.render(
-        <Provider store={ store }>
-            <App 
-                handlePlayer1Increment={ () => store.dispatch({ type: "incrementPlayer1" }) } 
-                handlePlayer2Increment={ () => store.dispatch({ type: "incrementPlayer2" }) } 
-                handleReset={ () => store.dispatch({ type: "reset" }) } 
-            />
-        </Provider>,
-        document.getElementById("root")
-    );
-};
-store.subscribe(render);
-render();
+ReactDOM.render(
+    <Provider store={ store }>
+
+        <App />
+        
+    </Provider>,
+    document.getElementById("root")
+);

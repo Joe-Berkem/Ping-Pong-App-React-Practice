@@ -4,7 +4,7 @@ const GameLog = ({
     history
 }) => (
       
-      <table class="table">
+      <table className="table">
         <thead>
             <tr>
                 <th scope="col">#</th>
