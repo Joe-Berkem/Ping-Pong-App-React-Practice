@@ -5,12 +5,15 @@ import ResetButton from './ResetButton';
 import GameLog from './GameLog';
 import Player1 from './Player/Player1';
 import Player2 from './Player/Player2';
+import Settings from './Settings/';
 
 const App = () => (
 
   <React.Fragment>
     
       <Header/>
+  
+      <Settings />
 
       <div className="row">
           <Player1

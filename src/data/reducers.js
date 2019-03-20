@@ -27,6 +27,9 @@ const addToHistory = (state) => {
     return state.winner === 1 || state.winner === 2 ?{...state, history: [...state.history, `Player 1 = ${state.player1} | Player 2 = ${state.player2}`]} : state;
 }
 
+const submitSettings = (state, {type, ...action}) => ({...state, ...action})
+
+
 const reducers = (state, action) => {
     switch (action.type) {
         case "incrementPlayer1": return addToHistory(winnerPlayer1(tieBreak(server(incrementPlayer1(state)))));
@@ -35,8 +38,11 @@ const reducers = (state, action) => {
                                         player2: 0,
                                         player1Serving: true,
                                         winner:0}
+        case "submit": return submitSettings(state, action);
         default: return state; 
     }
 };
 
 export default reducers;
+
+// add handlesubmit action

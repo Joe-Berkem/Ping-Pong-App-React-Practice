@@ -5,6 +5,11 @@ const initial = {
     player1Serving: true,
     winner: 0,
     history: [],
+    settingsCompleted: false,
+    p1Name: "",
+    p2Name: "",
+    winningScore: 21,
+    alternateEvery: 5,
 };
 
 export default initial;
