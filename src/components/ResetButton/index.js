@@ -1,9 +1,10 @@
 import { connect } from "react-redux";
 import ResetButton from "./ResetButton";
+import { reset } from "../../data/actions";
 
 const mapDispatchToProps = dispatch => {
     return {
-        handleReset: () => dispatch({ type: "reset" }),
+        handleReset: () => dispatch(reset()),
     };
 };
 

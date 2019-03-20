@@ -13,7 +13,7 @@ const GameLog = ({
         </thead>
         <tbody>
         { history.map(index => (
-            <tr>
+            <tr key={index}>
                 <th scope="row">#</th>
                         <td>{ index }</td>      
             </tr>

@@ -6,8 +6,7 @@ import GameLog from './GameLog';
 import Player1 from './Player/Player1';
 import Player2 from './Player/Player2';
 
-const App = ({
-}) => (
+const App = () => (
 
   <React.Fragment>
     
