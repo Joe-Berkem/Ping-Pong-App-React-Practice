@@ -1,8 +1,8 @@
 import React from 'react';
 
-const DisplayWinner = ({ winner}) => winner === 0 ? null : ( 
+const DisplayWinner = ({ winner, p1Name, p2Name }) => winner === 0 ? null : ( 
 
-       <h2 className="jumbotron">Player {winner === 1 ? 1 : 2} wins!</h2>
+       <h2 className="jumbotron">{winner === 1 ? p1Name : p2Name} wins!</h2>
 );
 
 export default DisplayWinner;

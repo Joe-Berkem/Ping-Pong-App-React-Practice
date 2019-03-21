@@ -3,7 +3,9 @@ import DisplayWinner from "./DisplayWinner";
 
 const mapStateToProps = state => {
     return {
-        winner: state.winner
+        winner: state.winner,
+        p1Name: state.p1Name,
+        p2Name: state.p2Name,
     };
 };
 

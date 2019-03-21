@@ -27,3 +27,9 @@ export const submit = ({p1Name, p2Name, winningScore, alternateEvery }) => {
     };
 };
 
+export const resetSettings = () => {
+    return {
+      type: "resetSettings",
+    };
+};
+

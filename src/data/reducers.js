@@ -8,19 +8,19 @@ const incrementPlayer2 = (state) => {
 };
     
 const server = (state) => {
-    return ((state.player1 + state.player2) % 5 === 0) ? { ...state, player1Serving: state.player1Serving = !state.player1Serving } : state;
+    return ((state.player1 + state.player2) % state.alternateEvery === 0) ? { ...state, player1Serving: state.player1Serving = !state.player1Serving } : state;
 };
 
 const tieBreak = (state) => {
-    return ((state.player1 >= 21) && (state.player1 + state.player2) % 2 === 0) ? { ...state, player1Serving: state.player1Serving = !state.player1Serving } : state;
+    return ((state.player1 >= state.winningScore) && (state.player1 + state.player2) % 2 === 0) ? { ...state, player1Serving: state.player1Serving = !state.player1Serving } : state;
 };
 
 const winnerPlayer1 = (state) => {
-    return state.player1 >= 21 && (state.player1 - state.player2) > 1  ? {...state, winner: state.winner = 1} : state;
+    return state.player1 >= state.winningScore && (state.player1 - state.player2) > 1  ? {...state, winner: state.winner = 1} : state;
 }
 
 const winnerPlayer2 = (state) => {
-    return state.player2 >= 21  && (state.player2 - state.player1) > 1 ? {...state, winner: state.winner = 2} : state;
+    return state.player2 >= state.winningScore  && (state.player2 - state.player1) > 1 ? {...state, winner: state.winner = 2} : state;
 }
 
 const addToHistory = (state) => {
@@ -41,8 +41,9 @@ const reducers = (state, action) => {
         case "reset": return {...state, player1: 0,
                                         player2: 0,
                                         player1Serving: true,
-                                        winner:0}
+                                        winner:0};
         case "submit": return settingsCompleted(submitSettings(state, action));
+        case "resetSettings": return {...state, settingsCompleted: false};
         default: return state; 
     }
 };
