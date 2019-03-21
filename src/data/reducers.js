@@ -29,6 +29,10 @@ const addToHistory = (state) => {
 
 const submitSettings = (state, {type, ...action}) => ({...state, ...action})
 
+const settingsCompleted = (state) => {
+    return { ...state, settingsCompleted: true };
+}
+
 
 const reducers = (state, action) => {
     switch (action.type) {
@@ -38,11 +42,9 @@ const reducers = (state, action) => {
                                         player2: 0,
                                         player1Serving: true,
                                         winner:0}
-        case "submit": return submitSettings(state, action);
+        case "submit": return settingsCompleted(submitSettings(state, action));
         default: return state; 
     }
 };
 
 export default reducers;
-
-// add handlesubmit action

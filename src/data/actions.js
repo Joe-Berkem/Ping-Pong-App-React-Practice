@@ -26,3 +26,4 @@ export const submit = ({p1Name, p2Name, winningScore, alternateEvery }) => {
         alternateEvery,
     };
 };
+

@@ -8,6 +8,7 @@ const mapStateToProps = state => {
         player1Serving: !state.player1Serving,
         winner: state.winner,
         history: state.history,
+        name: state.p2Name,
     };
 };
 
