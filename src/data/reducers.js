@@ -24,7 +24,7 @@ const winnerPlayer2 = (state) => {
 }
 
 const addToHistory = (state) => {
-    return state.winner === 1 || state.winner === 2 ?{...state, history: [...state.history, `Player 1 = ${state.player1} | Player 2 = ${state.player2}`]} : state;
+    return state.winner === 1 || state.winner === 2 ?{...state, history: [...state.history, `${state.p1Name} = ${state.player1} | ${state.p2Name} = ${state.player2}`]} : state;
 }
 
 const submitSettings = (state, {type, ...action}) => ({...state, ...action})

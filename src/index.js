@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './components/App/';
+import './index.css';
 import { createStore } from "redux";
 import { Provider } from "react-redux";
 import initial from "./data/initial";
@@ -17,8 +18,10 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={ store }>
-
-        <App />
+       
+        <body>
+            <App />
+        </body>
         
     </Provider>,
     document.getElementById("root")
