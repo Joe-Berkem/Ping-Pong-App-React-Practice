@@ -5,3 +5,7 @@
 .reset-settings-button {
   float: right;
 }
+
+.dark-text {
+  color: black;
+}

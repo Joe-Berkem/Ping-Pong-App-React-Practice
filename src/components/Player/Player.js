@@ -10,11 +10,11 @@ const Player = ({
 
     <div className="col-xs-6">
         <p>{name} {player1Serving &&
-            <span className="pull-right label label-success">Serving</span>
+            <span className="pull-right label label-primary">Serving</span>
             }
         </p> 
         
-        <p className="well">{ score }</p>
+        <p className="well dark-text">{ score }</p>
 
         {winner === 0 ? 
         <button 
