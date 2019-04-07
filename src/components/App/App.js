@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../Header/Header';
+import Header from '../Header/Header.js';
 import DisplayWinner from '../DisplayWinner';
 import ResetButton from '../ResetButton';
 import GameLog from '../GameLog';
@@ -13,6 +13,7 @@ const App = ( {settingsCompleted} ) => (
   <React.Fragment>
     
       <Header/>
+
       { settingsCompleted ?
       <React.Fragment>
         <div className="row">
